@@ -1,19 +1,30 @@
-var hour9 = $("#8");
+var hour8 = $("#8");
 var hour9 = $("#9");
-var hour9 = $("#10");
-var hour9 = $("#11");
-var hour9 = $("#12");
-var hour9 = $("#13");
-var hour9 = $("#14");
-var hour9 = $("#15");
-var hour9 = $("#16");
-var hour9 = $("#17");
+var hour10 = $("#10");
+var hour11 = $("#11");
+var hour12 = $("#12");
+var hour1 = $("#13");
+var hour2 = $("#14");
+var hour3 = $("#15");
+var hour4 = $("#16");
+var hour5 = $("#17");
 var time = moment();
+var saveBtn = $(".saveBtn");
+
 
 $(document).ready(function () {
     var date = moment().format('dddd, MMMM Do YYYY');
 
     $('#currentDay').text(date);
+})
+
+
+
+saveBtn.on("click", function() {
+    var time = $(this).parent().attr("id");
+    var schedule = $(this).siblings(".schedule").val();
+
+    localStorage.setItem(time, schedule);
 })
 
 function pastPresentFuture () {
