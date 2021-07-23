@@ -11,25 +11,39 @@ var hour5 = $("#17");
 var time = moment();
 var saveBtn = $(".saveBtn");
 
+// $(document).ready(function () {
+//     var date = moment().format('dddd, MMMM Do YYYY');
 
-$(document).ready(function () {
-    var date = moment().format('dddd, MMMM Do YYYY');
+//     $('#currentDay').text(date);
+// })
 
-    $('#currentDay').text(date);
-})
+// current time and retrieving description from localstorage
+function setSchedule() {
+    // current time
+    $("#currentDay").text(moment().format("dddd, MMMM Do YYYY"));
 
+    $(".time-block").each(function() {
+        var id = $(this).attr("id");
+        var schedule = localStorage.getItem(id);
 
+        if (schedule !== null) {
+            $(this).children(".description").val(schedule);
+        }
+    });
+}
 
+// save button stores description into localstorage
 saveBtn.on("click", function() {
     var time = $(this).parent().attr("id");
-    var schedule = $(this).siblings(".schedule").val();
+    var schedule = $(this).siblings(".description").val();
 
     localStorage.setItem(time, schedule);
 })
 
+// color codes the time segments based on the current time
 function pastPresentFuture () {
     hour = time.hours();
-    $(".time-block").each(function () {
+    $(".time-block").each(function() {
         var thisHour = parseInt($(this).attr("id"));
 
         if (thisHour > hour) {
@@ -43,5 +57,7 @@ function pastPresentFuture () {
         }
     })
 }
+
+setSchedule();
 
 pastPresentFuture();
