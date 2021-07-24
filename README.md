@@ -9,5 +9,5 @@ https://ven-kim.github.io/ven-time-work/
 ![_C__Users_Vex_Desktop_Work%20Day%20Scheduler_super-disco_Develop_index html](https://user-images.githubusercontent.com/85568921/126874750-90163294-a8a9-47cf-a89d-b1370ff3abfa.png)
 
 ## Contribution
-Made by Xander Rapstine
+Made by Xander Rapstine 
 Refactored by Ven Kim
